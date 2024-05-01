@@ -109,6 +109,8 @@ for (const [key, { open, close }] of entries) {
 
 */
 
+// STRINGS part 01
+
 const airline = 'TAP Air Portugal';
 const plane = 'A320';
 
@@ -152,6 +154,8 @@ checkMiddleSeat('3E');
 console.log(new String('Hochmajer')); // WHAT JS DOES BEHIND THE SCENES WHEN CALLING METHODS ON STRINGS
 console.log(typeof new String('Hochmajer')); // OBJECT
 console.log(typeof new String('Hochmajer').slice(1)); // STRING
+
+// STRINGS part 02
 
 console.log(airline.toLowerCase());
 console.log(airline.toUpperCase());
@@ -234,3 +238,64 @@ const checkBaggage = function (items) {
 checkBaggage('I have a laptop, some Food and a pocket Knife');
 checkBaggage('Socks and camera');
 checkBaggage('Got some snacks and a gun for protection');
+
+// STRINGS part 03
+
+//  SPLIT and JOIN
+
+console.log('a+very+nice+string'.split('+'));
+console.log('Lesan Hochmajer'.split(' '));
+
+const [firstName, lastName] = 'Lesan Hochmajer'.split(' ');
+console.log(firstName);
+console.log(lastName);
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+console.log(typeof newName);
+
+// split and join function
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    namesUpper.push(n[0].toUpperCase() + n.slice(1).toLowerCase());
+    // namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+const passenger2 = 'jessica ann smith davis';
+
+capitalizeName(passenger2);
+capitalizeName('hoch majer');
+capitalizeName('Mr Lesan hochmajer');
+
+// Padding
+
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '+').padEnd(30, '+'));
+console.log('Hochmajer'.padStart(25, '+').padEnd(30, '-'));
+
+// Padding in a REAL WORLD EXAMPLE FUNCTION
+const maskCreditCard = function (number) {
+  const str = number + ''; // converts to string
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(8888999943445678));
+console.log(maskCreditCard('1234123412341234'));
+console.log(maskCreditCard(12341234));
+
+// Repeat
+
+const message2 = 'Bad Weather... All Departures Delayed... ';
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'✈️'.repeat(n)}`);
+};
+
+planesInLine(5);
+planesInLine(12);
