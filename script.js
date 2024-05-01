@@ -178,4 +178,59 @@ console.log(fixCapitalizationName('hOchMajEr'));
 const email = 'hello@hochmajer.dev';
 const loginEmail = ' Hello@Hochmajer.Dev \n';
 
-const lowerEmail = loginEmail.toLowerCase();
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+
+// console.log(email === normalizedEmail);
+
+// Comparing emails :: FUNCTION;
+
+const compareEmails = function (s1, s2) {
+  const normalize = s => s.toLowerCase().trim();
+  const isSame = normalize(s1) === normalize(s2);
+  return isSame;
+};
+
+if (compareEmails(email, loginEmail)) console.log('correct');
+else console.log('wrong email');
+
+// Replacing
+
+const priceGB = '288,97Ł';
+const priceUS = priceGB.replace('Ł', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+console.log(announcement.replace('door', 'gate'));
+// console.log(announcement.replaceAll('door', 'gate'));
+
+// Replacing with regular expression
+console.log(announcement.replace(/door/g, 'gate'));
+
+// Booleans [INCLUDES, STARTSWITH, ENDSWITH]
+
+const newplane = 'Airbus A320neo';
+console.log(newplane.includes('A320'));
+console.log(newplane.includes('Boeing'));
+console.log(newplane.startsWith('Air'));
+console.log(newplane.endsWith('neo'));
+
+if (newplane.startsWith('Airbus') && newplane.endsWith)
+  console.log('Part of the NEW Airbus family');
+
+// Practice exercise
+
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun'))
+    console.log('You are NOT allowed on board');
+  else console.log('Welcome aboard!');
+};
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
