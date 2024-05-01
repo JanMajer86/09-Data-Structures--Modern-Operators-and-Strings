@@ -47,6 +47,9 @@ const restaurant = {
   //   },
 };
 
+/*
+
+
 const arr = [2, 3, 4];
 const a = arr[0];
 const b = arr[1];
@@ -103,3 +106,76 @@ for (const x of entries) {
 for (const [key, { open, close }] of entries) {
   console.log(`On ${key}, we open at ${open} and close at ${close}.`);
 }
+
+*/
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+
+console.log(airline.length);
+console.log('B737'.length);
+
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('Portugal'));
+
+// create substring
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+// get first word
+console.log(airline.slice(0, airline.indexOf(' ')));
+// get last word
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+// counting from the end
+console.log(airline.slice(-8));
+// slice from both sides (beginning & end)
+console.log(airline.slice(4, -9));
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle seat');
+  else console.log('You got lucky');
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('Hochmajer')); // WHAT JS DOES BEHIND THE SCENES WHEN CALLING METHODS ON STRINGS
+console.log(typeof new String('Hochmajer')); // OBJECT
+console.log(typeof new String('Hochmajer').slice(1)); // STRING
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+// Fix capitalization in name
+
+const passenger = 'hOchMajEr'; // Hochmajer
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+// Fix capitalization of a name :: FUNCTION;
+
+const fixCapitalizationName = function (string) {
+  const corrected = string[0].toUpperCase() + string.slice(1).toLowerCase();
+  return corrected;
+};
+
+console.log(fixCapitalizationName('hOchMajEr'));
+
+// Comparing emails
+
+const email = 'hello@hochmajer.dev';
+const loginEmail = ' Hello@Hochmajer.Dev \n';
+
+const lowerEmail = loginEmail.toLowerCase();
